@@ -1,5 +1,5 @@
 <!DOCTYPE html>\n<html lang='en'>\n<head>\n    <title>About Us</title>\n</head>\n<body>\n    <a href='#main_content' title='Skip to Main Content'>Skip to Main Content</a>\n    <nav id='skip_links'>Other links here</nav>\n    <main id='main_content'>\n        <!-- rest of the page content here -->\n    </main>\n</body>\n</html>
-<html>
+<html lang='en'>
   <head>
     <meta charset="utf-8" />
     <link
@@ -288,20 +288,24 @@
         <h6>HTML</h6>
         <div class="progress">
 <div class="progress-bar" style="width: 80%">80%</div>
+becomes
+<div class="progress-bar" data-width="80%" >80%</div>
+with CSS: 
+.style-progress-bar {width: var(--width);}
         </div>
       </div>
 
       <div class="container1 mt-4">
         <h6>CSS</h6>
         <div class="progress">
-<div class="progress-bar" style="width: 80%">80%</div>
+<div class="progress-bar" style="--width: 80%">80%</div>
         </div>
       </div>
 
       <div class="container1 mt-3">
         <h6>C</h6>
         <div class="progress">
-<div class="progress-bar" color="#000000E6" style="width: 70%">
+<div class="progress-bar" color="#000000E6" style="--progress-width: 70%;"></div>
             70%
           </div>
         </div>
@@ -310,13 +314,13 @@
       <div class="container1 mt-3">
         <h6>JAVASCRIPT</h6>
         <div class="progress">
-<div class="progress-bar" style="width: 60%">60%</div>
+<div class='progress-bar' style='--width: 60;'>60%</div><style>.progress-bar { width: var(--width); }</style>
         </div>
       </div>
       <div class="container1 mt-3">
         <h6>PHP</h6>
         <div class="progress">
-<div class="progress-bar" style="width: calc(100% - 40px)">60%</div>
+<div class="progress-bar" style="width: calc(100% - 40px)">60%</div> -> <div class="progress-bar" style="width: calc(100% - 40px)"></div><style>.progress-bar {width: calc(100% - 40px)}</style><script>document.querySelector('.progress-bar').innerText = '60%';</script> 
           <br />
         </div>
         <br />
@@ -325,12 +329,12 @@
       <hr />
     </div>
   </body>
-<html>
+<html lang='en'>
     <!-- existing code -->
 </html>
 
 <!-- add navigation menu -->
 <nav id="navigation">
-    <button id="skip-nav" aria-label="Skip navigation"
+<button id="skip-nav" aria-label="Skip navigation" class="sr-only">Skip Navigation</button>
         onclick="document.querySelector('.main-content').focus(); document.getElementById('navigation').style.display = 'none';">Skip navigation</button>
 </nav>
